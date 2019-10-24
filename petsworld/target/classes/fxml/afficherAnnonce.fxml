@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="559.0" prefWidth="785.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherAnnonceController">
+   <children>
+      <TableView fx:id="tableannonce" layoutX="40.0" layoutY="50.0" prefHeight="243.0" prefWidth="708.0">
+        <columns>
+          <TableColumn fx:id="coldate" prefWidth="75.0" text="Date" />
+          <TableColumn fx:id="colnom" prefWidth="75.0" text="Nom" />
+            <TableColumn fx:id="colprenom" prefWidth="75.0" text="Prenom" />
+            <TableColumn fx:id="coltitre" prefWidth="75.0" text="Type" />
+            <TableColumn fx:id="coldescription" prefWidth="221.0" text="Description" />
+            <TableColumn fx:id="idpic" prefWidth="75.0" text="Photo" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnsupp1" layoutX="565.0" layoutY="14.0" mnemonicParsing="false" text="Supprimer" textFill="#bc0505" />
+      <Button fx:id="btnajout2" layoutX="681.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Ajouter" textFill="#a61212" />
+      <Button fx:id="modifid1" layoutX="450.0" layoutY="14.0" mnemonicParsing="false" onAction="#afficher_anchor" text="modifier" />
+   </children>
+</AnchorPane>
