@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="565.0" prefWidth="771.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXMLNewPassController">
+   <children>
+      <AnchorPane layoutX="105.0" layoutY="135.0" prefHeight="313.0" prefWidth="561.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="9.0" layoutY="48.0" prefHeight="13.0" prefWidth="365.0" text="Reset your Password" textFill="#494949">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <Label layoutX="94.0" layoutY="104.0" text="Please choose a new password:" textFill="#494949">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Line endX="430.60003662109375" layoutX="121.0" layoutY="87.0" startX="-112.0" startY="0.20001220703125" stroke="#494949" />
+            <TextField fx:id="mdp" layoutX="94.0" layoutY="135.0" prefHeight="27.0" prefWidth="157.0" />
+            <Label layoutX="94.0" layoutY="174.0" text="Re-enter the password:" textFill="#494949">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="mdp1" layoutX="94.0" layoutY="200.0" prefHeight="27.0" prefWidth="157.0" />
+            <Button fx:id="btn1" layoutX="312.0" layoutY="266.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="115.0" style="-fx-background-color: #E45652;" text="Change Password" />
+            <Button fx:id="btn2" layoutX="447.0" layoutY="266.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="90.0" style="-fx-background-color: #E45652;" text="Cancel" />
+            <Label fx:id="alert" layoutX="94.0" layoutY="238.0" prefHeight="18.0" prefWidth="257.0" textFill="#f50303" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

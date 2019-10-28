@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="556.0" prefWidth="764.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXMLVerifmController">
+   <children>
+      <AnchorPane layoutX="88.0" layoutY="153.0" prefHeight="250.0" prefWidth="588.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="23.0" prefHeight="13.0" prefWidth="365.0" text="Enter Security Code" textFill="#494949">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <Label layoutX="108.0" layoutY="56.0" text="Please check your email for a message with your code." textFill="#494949">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Line endX="430.60003662109375" layoutX="135.0" layoutY="39.0" startX="-112.0" startY="0.20001220703125" stroke="#494949" />
+            <Label fx:id="alert" layoutX="108.0" layoutY="134.0" prefHeight="18.0" prefWidth="476.0" textFill="#f50303" />
+            <Button fx:id="btn2" layoutX="491.0" layoutY="205.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="77.0" style="-fx-background-color: #E45652;" text="Cancel" />
+            <Button fx:id="btn1" layoutX="396.0" layoutY="205.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="77.0" style="-fx-background-color: #E45652;" text="Submit" />
+            <TextField fx:id="code" layoutX="108.0" layoutY="92.0" prefHeight="33.0" prefWidth="197.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
