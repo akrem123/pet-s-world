@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="651.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DisplayEventVetController">
+   <children>
+      <Label layoutX="105.0" layoutY="14.0" prefHeight="47.0" prefWidth="448.0" text="ESPACE DEMANDE POUR ADMINISTRATEUR">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
+         </font>
+      </Label>
+      <TableView fx:id="table" layoutX="16.0" layoutY="58.0" prefHeight="357.0" prefWidth="749.0">
+        <columns>
+          <TableColumn fx:id="C_ID" prefWidth="75.0" text="ID EVENT" />
+          <TableColumn fx:id="C_Nom" prefWidth="75.0" text="Nom Event" />
+            <TableColumn fx:id="C_categ" prefWidth="122.0" text="Categorie Event" />
+            <TableColumn fx:id="C_nb_place" prefWidth="59.0" text="Nb place" />
+            <TableColumn fx:id="C_date" prefWidth="83.0" text="Date" />
+            <TableColumn fx:id="C_heure" prefWidth="91.0" text="Heure" />
+            <TableColumn fx:id="C_Etat" prefWidth="92.0" text="Etat" />
+            <TableColumn fx:id="C_organisateur" prefWidth="76.0" text="Organisateur" />
+            <TableColumn fx:id="c_pic" prefWidth="114.0" text="picture" />
+        </columns>
+      </TableView>
+      <Button fx:id="btn_accept_req" layoutX="105.0" layoutY="455.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="164.0" text="ACCEPTER" />
+      <Button fx:id="btn_refuse" layoutX="371.0" layoutY="455.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="164.0" text="REFUSER" />
+      <ImageView fx:id="c_image" fitHeight="150.0" fitWidth="200.0" layoutX="565.0" layoutY="473.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

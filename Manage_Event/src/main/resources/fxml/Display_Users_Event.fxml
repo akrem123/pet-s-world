@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="543.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Display_Users_EventController">
+   <children>
+      <Label layoutX="117.0" layoutY="14.0" prefHeight="68.0" prefWidth="514.0" text="Listes des evenements actuel">
+         <font>
+            <Font name="System Bold Italic" size="32.0" />
+         </font>
+      </Label>
+      <TableView fx:id="table_us" layoutX="14.0" layoutY="82.0" prefHeight="185.0" prefWidth="683.0">
+        <columns>
+          <TableColumn fx:id="C1_Name_Ev" prefWidth="172.0" text="Nom Event" />
+          <TableColumn fx:id="C2_cat_event" prefWidth="121.0" text="Categorie Event" />
+            <TableColumn fx:id="C3_date_EV" prefWidth="242.0" text="Date Event" />
+            <TableColumn fx:id="C4_H_Debt" prefWidth="147.0" text="Heure Début" />
+        </columns>
+      </TableView>
+      <Button fx:id="btn_Participe" layoutX="192.0" layoutY="287.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="251.0" text="Participer" />
+      <CheckBox fx:id="check1" layoutX="70.0" layoutY="396.0" mnemonicParsing="false" onAction="#FILTER" text="Tournoi" />
+      <CheckBox fx:id="check2" layoutX="208.0" layoutY="396.0" mnemonicParsing="false" onAction="#filter2" text="Fete" />
+      <CheckBox fx:id="check3" layoutX="320.0" layoutY="388.0" mnemonicParsing="false" onAction="#filter3" text="Journée" />
+      <CheckBox fx:id="check4" layoutX="443.0" layoutY="388.0" mnemonicParsing="false" onAction="#filter4" text="Festival" />
+   </children>
+</AnchorPane>
