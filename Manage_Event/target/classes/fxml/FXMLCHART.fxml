@@ -3,9 +3,8 @@
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="526.0" prefWidth="652.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="fxml.FXMLCHARTController">
+<AnchorPane id="AnchorPane" prefHeight="526.0" prefWidth="652.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.FXMLCHARTController">
    <children>
-      <PieChart fx:id="PIE" layoutX="76.0" layoutY="76.0" title="EVENT DISTRUBTION" />
+      <PieChart fx:id="PIE" layoutX="52.0" layoutY="32.0" prefHeight="486.0" prefWidth="545.0" title="EVENT DISTRUBTION" />
    </children>
 </AnchorPane>

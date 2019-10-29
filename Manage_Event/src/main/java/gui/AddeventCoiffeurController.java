@@ -37,7 +37,7 @@ public class AddeventCoiffeurController implements Initializable {
     private TextField input_nom_event1;
     @FXML
     private ComboBox<String> combo_event1;
-     ObservableList<String> options1 = FXCollections.observableArrayList("EVENT1", "EVENT2","EVENT3");
+     ObservableList<String> options1 = FXCollections.observableArrayList("Tournoi", "Fete","Journée","Festival");
    
     @FXML
     private Button btn_add_coiffeur;
@@ -57,10 +57,10 @@ public class AddeventCoiffeurController implements Initializable {
         
          
          
-          SpinnerValueFactory<Integer> val = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100);
+          SpinnerValueFactory<Integer> val = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100,0);
         this.spin_coif.setValueFactory(val);
         
-        SpinnerValueFactory<Integer> val2 = new SpinnerValueFactory.IntegerSpinnerValueFactory(00, 23);
+        SpinnerValueFactory<Integer> val2 = new SpinnerValueFactory.IntegerSpinnerValueFactory(00, 23,0);
         this.spin_coif_heure.setValueFactory(val2);
         
         

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="621.0" prefWidth="817.0" style="-fx-background-color: #4555;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LoginController">
+   <children>
+      <Label layoutX="259.0" layoutY="26.0" prefHeight="96.0" prefWidth="254.0" text="WELCOME" textFill="#d00f0f">
+         <font>
+            <Font name="Book Antiqua" size="43.0" />
+         </font>
+      </Label>
+      <Button fx:id="bt_aller_vet" layoutX="70.0" layoutY="225.0" mnemonicParsing="false" prefHeight="182.0" prefWidth="254.0" text="VETERINAIRE" />
+      <Button fx:id="bt_aller_coif" layoutX="396.0" layoutY="225.0" mnemonicParsing="false" prefHeight="182.0" prefWidth="275.0" text="COIFFEUR" />
+   </children>
+</AnchorPane>

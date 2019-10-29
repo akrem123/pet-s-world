@@ -5,7 +5,6 @@
  */
 package gui;
 
-import gui.*;
 import Services.EventService;
 import entity.Event;
 import java.awt.Desktop;
@@ -42,8 +41,6 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.scene.image.Image;
 
-
-
 /**
  * FXML Controller class
  *
@@ -57,14 +54,9 @@ public class AddEventVetController implements Initializable {
     private DatePicker date_pck_event;
     @FXML
     private Button btn_add_vet;
-    
     @FXML
     private ComboBox<String> combo_event;
     ObservableList<String> options = FXCollections.observableArrayList("Tournoi", "Fete","Journée","Festival");
-    private ComboBox<String> combo_N_places;
-    ObservableList<String> nbr = FXCollections.observableArrayList("10", "20","30","40","50","60","70");
-    private ComboBox<String> combo_heure;
-    ObservableList<String> temp = FXCollections.observableArrayList("8", "9","10","11","12");
     @FXML
     private Button parcourir1;
     @FXML
@@ -81,6 +73,8 @@ public class AddEventVetController implements Initializable {
     private Spinner<Integer> spin_ev;
     @FXML
     private Spinner<Integer> spin_date;
+    @FXML
+    private Button btn_bac;
     /**
      * Initializes the controller class.
      */
@@ -90,12 +84,21 @@ public class AddEventVetController implements Initializable {
         //combo_N_places.setItems(nbr);
        // combo_heure.setItems(temp);
         
-        SpinnerValueFactory<Integer> val = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100);
+        SpinnerValueFactory<Integer> val = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000, 0);
         this.spin_ev.setValueFactory(val);
         
-        SpinnerValueFactory<Integer> val2 = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23);
+        SpinnerValueFactory<Integer> val2 = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23, 0);
         this.spin_date.setValueFactory(val2);
      
+         btn_bac.setOnAction(e->{
+        Parent root;
+                try {
+                    root=FXMLLoader.load(getClass().getClassLoader().getResource("fxml/Login.fxml"));
+                    btn_bac.getScene().setRoot(root);
+                } catch (IOException ex) {
+                    Logger.getLogger(AddEventVetController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            });
        
  
      btn_add_vet.setOnAction(e->{
@@ -110,45 +113,53 @@ public class AddEventVetController implements Initializable {
       //  String combb = combo_heure.getValue().toString();
         Integer spin = spin_ev.getValue();
         Integer spin_dat = spin_date.getValue();
-        
-      
-      
-        
-        
-          Event dx = new Event();
-        
-        dx.setNomEvent(nom);
-        dx.setCategorieEvent(comb);
-        dx.setNbrPlaceDispo(spin);
-        dx.setDateEvent(date_event);
-        dx.setHeureDebEvent(spin_dat);
-        dx.setImage_ev(file_image);
-        
-    
-     
-       
-        
-        //Event p=new Event(input_nom_event.getText(),combo_event.getValue().toString(),combo_N_places.getValue().toString(),date_event,combo_heure.getValue().toString(),file_image);
-         pathfrom = FileSystems.getDefault().getPath(Current_file.getPath());
-         
-         pathto = FileSystems.getDefault().getPath("C:\\Users\\SAIFOUN\\Documents\\NetBeansProjects\\Manage_Event\\src\\main\\java\\photo" + Current_file.getName());
-         Path targetDir = FileSystems.getDefault().getPath("C:\\Users\\SAIFOUN\\Documents\\NetBeansProjects\\Manage_Event\\src\\main\\java\\photo");
-         try {
-                Files.copy(pathfrom, pathto,StandardCopyOption.REPLACE_EXISTING);
-            } catch (IOException ex) {
-                Logger.getLogger(AddEventVetController.class.getName()).log(Level.SEVERE, null, ex);
-            }      
-        //  Files.copy(pathfrom, pathto, StandardCopyOption.REPLACE_EXISTING);
-        EventService ps=new EventService();
-        ps.insertEventVet(dx);
-        Parent root;
-        try {
-            root=FXMLLoader.load(getClass().getClassLoader().getResource("fxml/DisplayEventVet.fxml"));
-               btn_add_vet.getScene().setRoot(root);
-        } catch (IOException ex) {
-            Logger.getLogger(AddEventVetController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    });   
+         Event p=new Event(nom);
+        EventService psa=new EventService();
+        if(nom.isEmpty() || spin.equals(0)|| comb.isEmpty() || spin_dat.equals(0) )
+             {
+                  Alert alert =new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Invalid input");
+                alert.setHeaderText(null);
+                alert.setContentText("Un champ manquant !!  Veillez remplir les champs");
+                alert.showAndWait();
+             }
+             else{
+            {
+                
+                Event dx = new Event();
+                
+                dx.setNomEvent(nom);
+                dx.setCategorieEvent(comb);
+                dx.setNbrPlaceDispo(spin);
+                dx.setDateEvent(date_event);
+                dx.setHeureDebEvent(spin_dat);
+                dx.setImage_ev(file_image);
+                
+                //Event p=new Event(input_nom_event.getText(),combo_event.getValue().toString(),combo_N_places.getValue().toString(),date_event,combo_heure.getValue().toString(),file_image);
+                pathfrom = FileSystems.getDefault().getPath(Current_file.getPath());
+                
+                pathto = FileSystems.getDefault().getPath("C:\\Users\\SAIFOUN\\Documents\\NetBeansProjects\\Manage_Event\\src\\main\\java\\photo" + Current_file.getName());
+                Path targetDir = FileSystems.getDefault().getPath("C:\\Users\\SAIFOUN\\Documents\\NetBeansProjects\\Manage_Event\\src\\main\\java\\photo");
+                try {
+                    Files.copy(pathfrom, pathto,StandardCopyOption.REPLACE_EXISTING);
+                } catch (IOException ex) {
+                    Logger.getLogger(AddEventVetController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                //  Files.copy(pathfrom, pathto, StandardCopyOption.REPLACE_EXISTING);
+                EventService ps=new EventService();
+                ps.insertEventVet(dx);
+                Parent root;
+                try {
+                    root=FXMLLoader.load(getClass().getClassLoader().getResource("fxml/DisplayEventVet.fxml"));
+                    btn_add_vet.getScene().setRoot(root);
+                } catch (IOException ex) {
+                    Logger.getLogger(AddEventVetController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            }
+   
+     });
+
     
     /*
     
@@ -187,7 +198,18 @@ public class AddEventVetController implements Initializable {
 */
     
 }
-
+    /*                         button retour      /////////////////////////////////**************************
+     btn_bac.setOnAction(e->{
+        Parent root;
+                try {
+                    root=FXMLLoader.load(getClass().getClassLoader().getResource("fxml/AddeventCoiffeur.fxml"));
+                    bt_aller_coif.getScene().setRoot(root);
+                } catch (IOException ex) {
+                    Logger.getLogger(AddEventVetController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            });
+    }    
+*/
     @FXML
     private void parcourir_annonce(ActionEvent event) {
           FileChooser fc = new FileChooser();

@@ -6,6 +6,7 @@
 package Services;
 
 import entity.Event;
+import entity.Participation;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,6 +14,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -118,13 +120,13 @@ public class EventService {
          }
     }
      public List<Event> readAll2(){
-        String req="select NomEvent,CategorieEvent,DateEvent,HeureDebEvent from events";
+        String req="SELECT IdEvent,NomEvent,CategorieEvent,DateEvent,HeureDebEvent FROM events Where Etat='ACCEPTER' ORDER BY DateEvent DESC" ;
         List<Event> list= new ArrayList<>();
        try {
             ste=cnx.createStatement();
             rs=ste.executeQuery(req);
             while(rs.next()){
-                list.add(new Event(rs.getString("NomEvent"),rs.getString("CategorieEvent"),rs.getString("DateEvent"),rs.getInt("HeureDebEvent")));
+                list.add(new Event(rs.getInt("IdEvent"),rs.getString("NomEvent"),rs.getString("CategorieEvent"),rs.getString("DateEvent"),rs.getInt("HeureDebEvent")));
             }
              } catch (SQLException ex) {
             Logger.getLogger(EventService.class.getName()).log(Level.SEVERE, null, ex);
@@ -202,7 +204,61 @@ public class EventService {
             
        return list;
        } 
-      
-      
+      /////////////////////////////////////////////////////////////////////////////////////     
+     public List<Event> Controll_name(){
+        String req="select NomEvent from events";
+        List<Event> list= new ArrayList<>();
+       try {
+            ste=cnx.createStatement();
+            rs=ste.executeQuery(req);
+            while(rs.next()){
+                list.add(new Event(rs.getString("NomEvent")));
+            }
+             } catch (SQLException ex) {
+            Logger.getLogger(EventService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+       return list;
+       }
+     
+    public void participe(Participation par){
+        String req="INSERT INTO participation(userid,eventsid) values ('"+par.getUserid()+"','"+par.getEventsid()+"')";
+       // values ('"+e.getNomEvent()+"','"+e.getCategorieEvent()+"','"+e.getNbrPlaceDispo()+
+        try{
+            ste= cnx.createStatement();
+            ste.executeUpdate(req);
+        }catch(SQLException ex){
+            Logger.getLogger(EventService.class.getName()).log(Level.SEVERE, null, ex);
+        }     
 }
+    //***************************************** EDIT *************************************
+        public void updateEvent(Event e,int id){
+        String req="update events set NomEvent='"+e.getNomEvent()+"',CategorieEvent='"+e.getCategorieEvent()+"',NbrPlaceDispo='"+e.getNbrPlaceDispo()+"',DateEvent='"+e.getDateEvent()+"',HeureDebEvent='"+e.getHeureDebEvent()+"',image_ev='"+e.getImage_ev()+"' where IdEvent="+id;
+        try {
+            ste=cnx.createStatement();
+            ste.executeUpdate(req);
+        } catch (SQLException ex) {
+            Logger.getLogger(EventService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+     
+   ////////////////////////////////////////////////////////////////////////////////
+        public ObservableList<Event> readAll22(){
+        String req="select NomEvent,CategorieEvent,NbrPlaceDispo,DateEvent from events";
+        List<Event> list= new ArrayList<>();
+       try {
+            ste=cnx.createStatement();
+            rs=ste.executeQuery(req);
+            while(rs.next()){
+                list.add(new Event(rs.getString("NomEvent"),rs.getString("CategorieEvent"),rs.getInt("NbrPlaceDispo"),rs.getString("DateEvent")));
+               // list.add(new Event(rs.getInt("IdEvent"),rs.getString("NomEvent"),rs.getString("CategorieEvent"),rs.getInt("NbrPlaceDispo"),rs.getString("DateEvent"),rs.getInt("HeureDebEvent"),rs.getString("Etat"),rs.getString("organisateur"),rs.getString("image_ev")));
+            }
+             } catch (SQLException ex) {
+            Logger.getLogger(EventService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+       
+       return (ObservableList<Event>) list;
+       }
 
+}

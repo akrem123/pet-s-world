@@ -18,7 +18,11 @@ public class main {
          //Event ev = new Event("Event_Top", "GAMING",20,"2019-10-17",20);
          //Event ev = new Event("NomEvent", "CategorieEvent","5","2");
          
-         EventService es1 =new EventService();
+//         EventService es1 =new EventService();
+//         Event ev = new Event("degla");
+//         
+         
+         
         // Event ev  = new Event("NomEvent", "NbrPlaceDispo"," DateEvent", "eureDebEvent");
          //es.readByNomEvent("NomEvent");
          

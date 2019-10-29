@@ -8,6 +8,7 @@ package gui;
 import Services.EventService;
 import Services.ParticipationService;
 import entity.Event;
+import entity.Participation;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -56,6 +57,8 @@ public class Display_Users_EventController implements Initializable {
     private CheckBox check3;
     @FXML
     private CheckBox check4;
+    
+   int ID;
 
     /**
      * Initializes the controller class.
@@ -73,11 +76,32 @@ public class Display_Users_EventController implements Initializable {
         C1_Name_Ev.setCellValueFactory(new PropertyValueFactory<Event,String>("NomEvent"));
         C2_cat_event.setCellValueFactory(new PropertyValueFactory<Event,String>("CategorieEvent"));
         C3_date_EV.setCellValueFactory(new PropertyValueFactory<Event,String>("DateEvent"));
-        C4_H_Debt.setCellValueFactory(new PropertyValueFactory<Event,String>("HeureDebEvent"));    
+        C4_H_Debt.setCellValueFactory(new PropertyValueFactory<Event,String>("HeureDebEvent"));  
+        
+        
+        btn_Participe.setOnAction(e->{
+            
+            EventService ee = new EventService();
+            
+          // Event eee = new Event(table_us.getSelectionModel().getSelectedItem().getIdEvent());
+           int idd= table_us.getSelectionModel().getSelectedItem().getIdEvent();
+            System.out.println(idd);
+          
+            Participation p = new Participation(1, idd);
+            
+            //Jassem USER ID 
+            ee.participe(p);
+            
+         
+        
+    });
     }    
     @FXML
     private void FILTER(ActionEvent event) {
       if(check1.isSelected()){
+          check2.setSelected(false);
+          check3.setSelected(false);
+          check4.setSelected(false);
               EventService ps=new EventService();
           //ParticipationService psa=new ParticipationService();
         ArrayList<Event> pers=(ArrayList<Event>) ps.filterC1();
@@ -109,6 +133,9 @@ public class Display_Users_EventController implements Initializable {
     @FXML
     private void filter2(ActionEvent event) {
          if(check2.isSelected()){
+              check3.setSelected(false);
+          check4.setSelected(false);
+          check1.setSelected(false);
               EventService ps=new EventService();
           //ParticipationService psa=new ParticipationService();
         ArrayList<Event> pers=(ArrayList<Event>) ps.filterC2();
@@ -119,6 +146,7 @@ public class Display_Users_EventController implements Initializable {
         C2_cat_event.setCellValueFactory(new PropertyValueFactory<Event,String>("CategorieEvent"));
         C3_date_EV.setCellValueFactory(new PropertyValueFactory<Event,String>("DateEvent"));
         C4_H_Debt.setCellValueFactory(new PropertyValueFactory<Event,String>("HeureDebEvent"));
+        
     }
           else
       {
@@ -139,6 +167,9 @@ public class Display_Users_EventController implements Initializable {
     @FXML
     private void filter3(ActionEvent event) {
         if(check3.isSelected()){
+             check2.setSelected(false);
+          check1.setSelected(false);
+          check4.setSelected(false);
               EventService ps=new EventService();
           //ParticipationService psa=new ParticipationService();
         ArrayList<Event> pers=(ArrayList<Event>) ps.filterC3();
@@ -170,6 +201,9 @@ public class Display_Users_EventController implements Initializable {
     @FXML
     private void filter4(ActionEvent event) {
         if(check4.isSelected()){
+             check2.setSelected(false);
+          check3.setSelected(false);
+          check1.setSelected(false);
               EventService ps=new EventService();
           //ParticipationService psa=new ParticipationService();
         ArrayList<Event> pers=(ArrayList<Event>) ps.filterC4();
@@ -185,7 +219,7 @@ public class Display_Users_EventController implements Initializable {
       {
        
         EventService ps=new EventService();
-          //ParticipationService psa=new ParticipationService();
+          //ParticipationService psa=new Partici nhpationService();
         ArrayList<Event> pers=(ArrayList<Event>) ps.readAll2();
         ObservableList<Event> obs =FXCollections.observableArrayList(pers);
         table_us.setItems(obs);
@@ -198,7 +232,7 @@ public class Display_Users_EventController implements Initializable {
     }
     }
     
-    
+     
     
     
     

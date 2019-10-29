@@ -57,6 +57,10 @@ public class Event {
         this.image_ev = image_ev;
     }
 
+    public Event(String NomEvent) {
+        this.NomEvent = NomEvent;
+    }
+
     public Event(String NomEvent, String CategorieEvent, int NbrPlaceDispo, String DateEvent, int HeureDebEvent, String Etat, String organisateur, String image_ev) {
         this.NomEvent = NomEvent;
         this.CategorieEvent = CategorieEvent;
@@ -173,6 +177,32 @@ public class Event {
         this.organisateur = organisateur;
     }
 
+    public Event(String NomEvent, String CategorieEvent, int NbrPlaceDispo, String DateEvent) {
+        this.NomEvent = NomEvent;
+        this.CategorieEvent = CategorieEvent;
+        this.NbrPlaceDispo = NbrPlaceDispo;
+        this.DateEvent = DateEvent;
+    }
+
+    public Event(String NomEvent, String CategorieEvent, int NbrPlaceDispo) {
+        this.NomEvent = NomEvent;
+        this.CategorieEvent = CategorieEvent;
+        this.NbrPlaceDispo = NbrPlaceDispo;
+    }
+
+    public Event(String NomEvent, String CategorieEvent) {
+        this.NomEvent = NomEvent;
+        this.CategorieEvent = CategorieEvent;
+    }
+
+    public Event(int IdEvent, String NomEvent, String CategorieEvent, String DateEvent, int HeureDebEvent) {
+        this.IdEvent = IdEvent;
+        this.NomEvent = NomEvent;
+        this.CategorieEvent = CategorieEvent;
+        this.DateEvent = DateEvent;
+        this.HeureDebEvent = HeureDebEvent;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -218,6 +248,10 @@ public class Event {
     @Override
     public String toString() {
         return "Event{" + "IdEvent=" + IdEvent + ", NomEvent=" + NomEvent + ", CategorieEvent=" + CategorieEvent + ", NbrPlaceDispo=" + NbrPlaceDispo + ", DateEvent=" + DateEvent + ", HeureDebEvent=" + HeureDebEvent + ", Etat=" + Etat + ", organisateur=" + organisateur + ", image_ev=" + image_ev + '}';
+    }
+
+    public Event(int IdEvent) {
+        this.IdEvent = IdEvent;
     }
     
 
