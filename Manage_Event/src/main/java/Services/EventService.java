@@ -223,6 +223,8 @@ public class EventService {
      
     public void participe(Participation par){
         String req="INSERT INTO participation(userid,eventsid) values ('"+par.getUserid()+"','"+par.getEventsid()+"')";
+         
+        
        // values ('"+e.getNomEvent()+"','"+e.getCategorieEvent()+"','"+e.getNbrPlaceDispo()+
         try{
             ste= cnx.createStatement();
@@ -234,6 +236,7 @@ public class EventService {
     //***************************************** EDIT *************************************
         public void updateEvent(Event e,int id){
         String req="update events set NomEvent='"+e.getNomEvent()+"',CategorieEvent='"+e.getCategorieEvent()+"',NbrPlaceDispo='"+e.getNbrPlaceDispo()+"',DateEvent='"+e.getDateEvent()+"',HeureDebEvent='"+e.getHeureDebEvent()+"',image_ev='"+e.getImage_ev()+"' where IdEvent="+id;
+        
         try {
             ste=cnx.createStatement();
             ste.executeUpdate(req);
@@ -260,5 +263,15 @@ public class EventService {
        
        return (ObservableList<Event>) list;
        }
-
+        ////////////////////
+public void updateDecrease(int id){
+ 
+          String req= "UPDATE `EVENTS` SET `NbrPlaceDispo` =`NbrPlaceDispo`-1 WHERE IdEvent="+id;
+        try {
+            ste=cnx.createStatement();
+            ste.executeUpdate(req);
+        } catch (SQLException ex) {
+            Logger.getLogger(EventService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

@@ -79,7 +79,7 @@ public class DisplayEventVetController implements Initializable {
           table.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             String x = table.getSelectionModel().getSelectedItem().getImage_ev();
-            File file = new File("C:\\Users\\Asus\\Documents\\NetBeansProjects\\petsworld\\src\\main\\java\\photos" + x);
+            File file = new File("C\\Users\\SAIFOUN\\Documents\\NetBeansProjects\\Manage_Event\\src\\main\\java" + x);
             Image image1 = new Image(file.toURI().toString());
             c_image.setImage(image1);
 

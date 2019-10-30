@@ -94,7 +94,13 @@ public class EditEventVetController implements Initializable {
         spin_date1.getValueFactory().setValue(DisplayEventVetController.an.getNbrPlaceDispo());
         String vale = DisplayEventVetController.an.getDateEvent();
         date_pck_event1.setValue(LocalDate.parse(vale));
-        
+       
+        String x = DisplayEventVetController.an.getImage_ev();
+         System.out.println(x);
+      File file = new File("C:\\Users\\SAIFOUN\\Documents\\NetBeansProjects\\Manage_Event\\src\\main\\java" + x);
+// Image image = new Image(file.toURI().toString());
+   Image img = new Image(file.toURI().toString());
+    img_v.setImage(img);
     } 
     @FXML
     private void parcourir_annonce2(ActionEvent event) {

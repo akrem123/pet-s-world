@@ -27,8 +27,9 @@ public class FXMain extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
        //Parent root= FXMLLoader.load(getClass().getClassLoader().getResource("fxml/DisplayEventVet.fxml"));
-        Parent root= FXMLLoader.load(getClass().getClassLoader().getResource("fxml/AddEventVet.fxml"));
-         
+        Parent root= FXMLLoader.load(getClass().getClassLoader().getResource("fxml/FXMLCHART.fxml"));
+         //Display_Users_Event
+         //
         Scene scene = new Scene(root, 1000, 1000);
       
         

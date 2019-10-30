@@ -245,6 +245,11 @@ public class Event {
         return true;
     }
 
+    public Event(String CategorieEvent, int NbrPlaceDispo) {
+        this.CategorieEvent = CategorieEvent;
+        this.NbrPlaceDispo = NbrPlaceDispo;
+    }
+
     @Override
     public String toString() {
         return "Event{" + "IdEvent=" + IdEvent + ", NomEvent=" + NomEvent + ", CategorieEvent=" + CategorieEvent + ", NbrPlaceDispo=" + NbrPlaceDispo + ", DateEvent=" + DateEvent + ", HeureDebEvent=" + HeureDebEvent + ", Etat=" + Etat + ", organisateur=" + organisateur + ", image_ev=" + image_ev + '}';

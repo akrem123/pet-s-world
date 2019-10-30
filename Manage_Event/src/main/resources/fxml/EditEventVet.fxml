@@ -35,6 +35,6 @@
       </Label>
       <Button fx:id="btn_bac" layoutX="48.0" layoutY="614.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="113.0" text="BACK" />
       <Button fx:id="btn_par_edit" layoutX="596.0" layoutY="303.0" mnemonicParsing="false" onAction="#parcourir_annonce2" text="PARCOURIR" />
-      <ImageView fx:id="img_v" fitHeight="150.0" fitWidth="200.0" layoutX="518.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="img_v" fitHeight="193.0" fitWidth="200.0" layoutX="518.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

@@ -1,61 +1,107 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package entity;
-
-import java.util.Objects;
 
 /**
  *
- * @author SAIFOUN
+ * @author benra
  */
 public class User {
-    private int IdEvent;
-    private int cin;
-    private String nom;
-    private String prenom;
-
-    public User(int IdEvent, int cin, String nom, String prenom) {
-        this.IdEvent = IdEvent;
-        this.cin = cin;
+    protected int id;
+    protected String nom;
+    protected String email;
+    protected String mdp;
+    protected String type;
+    
+    
+    public User(){
+    }
+    
+    public User(String nom, String email, String mdp, String type) {
         this.nom = nom;
-        this.prenom = prenom;
+        this.email = email;
+        this.mdp = mdp;
+        this.type = type;
+    }
+    
+    
+    
+    public User(int id, String nom, String email, String mdp, String type) {
+        this.id = id;
+        this.nom = nom;
+        this.email = email;
+        this.mdp = mdp;
+        this.type = type;
+    }
+    
+    public User(String email, String mdp) {
+        this.email = email;
+        this.mdp = mdp;
+    }
+    
+    
+    
+    public User(String nom, String email, String mdp) {
+        this.nom = nom;
+        this.email = email;
+        this.mdp = mdp;
+    }
+    
+    public User(int id, String email, String mdp) {
+        this.id = id;
+        this.email = email;
+        this.mdp = mdp;
     }
 
-    public int getIdEvent() {
-        return IdEvent;
+    public int getId() {
+        return id;
     }
 
-    public int getCin() {
-        return cin;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNom() {
         return nom;
     }
 
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public void setIdEvent(int IdEvent) {
-        this.IdEvent = IdEvent;
-    }
-
-    public void setCin(int cin) {
-        this.cin = cin;
-    }
-
     public void setNom(String nom) {
         this.nom = nom;
     }
 
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getMdp() {
+        return mdp;
+    }
+
+    public void setMdp(String mdp) {
+        this.mdp = mdp;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     @Override
-    public int hashCode() {
-        int hash = 3;
-        return hash;
+    public String toString() {
+        return "User{" + "id=" + id + ", nom=" + nom + ", email=" + email + ", mdp=" + mdp + ", type=" + type + '}';
     }
+
+    
 
     @Override
     public boolean equals(Object obj) {
@@ -69,24 +115,10 @@ public class User {
             return false;
         }
         final User other = (User) obj;
-        if (this.IdEvent != other.IdEvent) {
-            return false;
-        }
-        if (this.cin != other.cin) {
-            return false;
-        }
-        if (!Objects.equals(this.nom, other.nom)) {
-            return false;
-        }
-        if (!Objects.equals(this.prenom, other.prenom)) {
+        if (this.id != other.id) {
             return false;
         }
         return true;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" + "IdEvent=" + IdEvent + ", cin=" + cin + ", nom=" + nom + ", prenom=" + prenom + '}';
     }
     
     

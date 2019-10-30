@@ -82,11 +82,12 @@ public class Display_Users_EventController implements Initializable {
         btn_Participe.setOnAction(e->{
             
             EventService ee = new EventService();
+            EventService eee = new EventService();
             
           // Event eee = new Event(table_us.getSelectionModel().getSelectedItem().getIdEvent());
            int idd= table_us.getSelectionModel().getSelectedItem().getIdEvent();
             System.out.println(idd);
-          
+            ee.updateDecrease(idd);
             Participation p = new Participation(1, idd);
             
             //Jassem USER ID 
