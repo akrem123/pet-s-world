@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="590.0" prefWidth="751.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PanierAdoptionController">
+   <children>
+      <TableView fx:id="panier_aff" layoutX="65.0" layoutY="71.0" prefHeight="295.0" prefWidth="613.0" />
+      <Label layoutX="190.0" layoutY="6.0" prefHeight="43.0" prefWidth="237.0" text="Panier d'adoption">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="ret" layoutX="503.0" layoutY="37.0" mnemonicParsing="false" onAction="#retour_aff" text="Retour" />
+      <ImageView fx:id="imgView1" fitHeight="192.0" fitWidth="254.0" layoutX="249.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="label_dem" layoutX="260.0" layoutY="445.0" prefHeight="49.0" prefWidth="283.0" text="Pas de demande d'adoption">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="52.0" layoutY="428.0" text="Demande d'adoption:" />
+      <Button fx:id="sup_2" layoutX="543.0" layoutY="416.0" mnemonicParsing="false" text="Supprimer" />
+   </children>
+</AnchorPane>
